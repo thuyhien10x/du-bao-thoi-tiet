@@ -175,7 +175,7 @@
                 redirect: "follow"
             };
 
-            fetch("/api.php", requestOptions)
+            fetch("/current.php", requestOptions)
                 .then((response) => response.json())
                 .then(function (result) {
                     console.log(result);
