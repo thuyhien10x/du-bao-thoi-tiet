@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         body {
-            margin:0;
-            padding:0;
-            
+            margin: 0;
+            padding: 0;
+
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-image: url("wallpaper.jpg");
 
         }
+
         .container {
-            width:1000px;
+            width: 1000px;
             /* height: 1800px; */
-            margin:auto;
+            margin: auto;
         }
+
         .currentWeather {
-            width:100%;
-            height:200px;
+            width: 100%;
+            height: 200px;
         }
+
         .hourly {
-            flex:2;
-            height:150px;
+            flex: 2;
+            height: 150px;
             background-color: rgba(63, 69, 79, 0.548);
             border-radius: 20px;
             margin-right: 5px;
             margin-bottom: 5px;
             border: 1px solid #2b2d31;
-            flex-wrap: nowrap; 
+            flex-wrap: nowrap;
             justify-content: space-between;
             padding: 20px;
             border-radius: 10px;
-            overflow-x: auto; 
+            overflow-x: auto;
             overflow-y: hidden;
         }
+
         .hourly-forecast-item {
-            flex: 0 0 auto; /* Prevent items from shrinking */
+            flex: 1;
+            /* flex: 0 0 auto; Prevent items from shrinking */
             text-align: center;
             margin-bottom: 20px;
             padding: 10px;
             background-color: rgba(63, 69, 79, 0.548);
-            width: calc(20% - 10px); /* Set width of each item */
-            color:white;
+            width: calc(20% - 10px);
+            /* Set width of each item */
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -56,13 +63,14 @@
             height: 50px;
             margin-bottom: 5px;
         }
-        .hourly time{
+
+        .hourly time {
             font-size: small;
         }
-      
+
         .map {
-            flex:1;
-            height:192px;
+            flex: 1;
+            height: 192px;
             border-radius: 20px;
             margin-bottom: 0px;
             background-color: rgba(63, 69, 79, 0.548);
@@ -71,129 +79,142 @@
 
 
         }
+
         .flex {
-            display:flex;
+            display: flex;
         }
-    
+
         .day {
-            flex:1;
-            height:360px;
+            flex: 1;
+            height: 360px;
             background-color: rgba(63, 69, 79, 0.548);
             border-radius: 20px;
             margin-right: 5px;
         }
-        
-       
-        
+
+
+
         .day-item {
-            width:100%;
+            width: 100%;
             height: 50px;
             margin-top: 1px;
-            padding:0px;
+            padding: 0px;
         }
 
         .air {
-            flex:2;
+            flex: 2;
             height: 380px;
             border-radius: 20px;
             margin-bottom: 5px;
-            margin-top:0px;
+            margin-top: 0px;
 
 
         }
+
         .quality {
-            width:100%;
-            height:110px;
+            width: 100%;
+            height: 110px;
             background-color: rgba(63, 69, 79, 0.548);
             border-radius: 10px;
             margin-bottom: 5px;
 
 
         }
+
         .top {
-            width:100%;
-            height:120px;            
+            width: 100%;
+            height: 120px;
             margin-bottom: 5px;
 
 
         }
+
         .bottom {
-            width:100%;
-            height:120px;
+            width: 100%;
+            height: 120px;
 
         }
+
         .uv {
-            width:175px;
+            width: 175px;
             height: 120px;
             background-color: rgba(63, 69, 79, 0.548);
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
 
         }
-        .sunrise {
-            width:175px;
+
+        .cloud {
+            width: 175px;
             height: 120px;
             background-color: rgba(63, 69, 79, 0.548);
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
 
 
         }
+
         .wind {
-            width:175px;
+            width: 175px;
             height: 120px;
             background-color: rgba(63, 69, 79, 0.548);
 
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
 
 
         }
+
         .precipitation {
-            width:175px;
+            width: 175px;
             height: 120px;
             background-color: rgba(63, 69, 79, 0.548);
 
             border-radius: 20px;
 
         }
+
         .feel {
-            width:175px;
+            width: 175px;
             height: 120px;
             background-color: rgba(63, 69, 79, 0.548);
 
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
 
 
         }
+
         .humidity {
-            width:175px;
+            width: 175px;
             height: 120px;
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
             background-color: rgba(63, 69, 79, 0.548);
 
 
         }
+
         .visibility {
-            width:175px;
+            width: 175px;
             height: 120px;
             border-radius: 20px;
-            margin-right:5px;
+            margin-right: 5px;
             background-color: rgba(63, 69, 79, 0.548);
 
 
 
         }
+
         .pressure {
-            width:175px;
+            width: 175px;
             height: 120px;
             border-radius: 20px;
             background-color: rgba(63, 69, 79, 0.548);
 
 
         }
+
         p {
             color: white;
             text-align: center;
@@ -207,19 +228,23 @@
             height: 100%;
             z-index: -1;
         }
+
         body.cloudy {
             background-color: #2c2f32;
         }
+
         .temp {
             margin: 0;
             padding: 0;
             font-size: 50px;
         }
+
         .progress-container {
             width: 660px;
             margin: 20px;
             text-align: center;
         }
+
         progress {
             width: 50%;
             height: 10px;
@@ -227,263 +252,208 @@
             border-radius: 20px;
             background: linear-gradient(to right, #1db136, #f02913);
         }
+
         progress::-webkit-progress-bar {
-         background-color: rgb(29, 45, 80);
+            background-color: rgb(29, 45, 80);
         }
+
         progress::-webkit-progress-value {
-         background-color: rgb(143, 153, 173);
+            background-color: rgb(143, 153, 173);
         }
-        .uv-progress{
+
+        .uv-progress {
             width: 100px;
             margin-top: 1px;
             text-align: center;
         }
+
         .hanoi-map {
-            max-height: 80%; 
-            overflow: auto; 
-            
+            max-height: 80%;
+            overflow: auto;
+
         }
+
         .day-progress {
             width: 50%;
             margin-left: 0px;
         }
-        .day-progress progress{
+
+        .day-progress progress {
             margin-left: 0px;
         }
-        
+
         ::-webkit-scrollbar {
-        width: 10px;
+            width: 10px;
         }
 
         /* Track */
         ::-webkit-scrollbar-track {
-        background: gray;
-        border-radius: 10px;
+            background: gray;
+            border-radius: 10px;
 
         }
-        
+
         /* Handle */
         ::-webkit-scrollbar-thumb {
-        background: black;
-        border-radius: 10px;
+            background: black;
+            border-radius: 10px;
 
         }
 
         /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+            background: #555;
         }
-
     </style>
 </head>
+
 <body class="cloudy">
-    
-    <div class="container">
+
+    <div class="container" style="margin-top: 50px;">
         <div class="currentWeather">
             <p class="city">Ha Noi</p>
             <p class="temp">
                 <span id="currentTemp">--</span>
-                °C</p>
+                °C
+            </p>
             <p id="currentWeatherCondition" class="currentWeatherCondition">--</p>
         </div>
-        <div class="flex">
-            <div class="hourly">
-                <div class="flex">
-                    <div class="hourly-forecast-item">
-                        <time>1:00 PM</time>
-                        <img src="cloudy.png" alt="Sunny">
-                        <div class="temperature">21°C</div>
-                    </div>
-                    <div class="hourly-forecast-item">
-                        <time>2:00 PM</time>
-                        <img src="cloudy.png" alt="Cloudy">
-                        <div class="temperature">24°C</div>
-                    </div>
-                    <div class="hourly-forecast-item">
-                        <time>3:00 PM</time>
-                        <img src="cloudy.png" alt="Cloudy">
-                        <div class="temperature">22°C</div>
-                    </div>
-                    <div class="hourly-forecast-item">
-                        <time>4:00 PM</time>
-                        <img src="cloudy.png" alt="Cloudy">
-                        <div class="temperature">18°C</div>
-                    </div>
-                    <div class="hourly-forecast-item">
-                        <time>5:00 PM</time>
-                        <img src="cloudy.png" alt="Cloudy">
-                        <div class="temperature">19°C</div>
-                    </div>
-                    <div class="hourly-forecast-item">
-                        <time>6:00 PM</time>
-                        <img src="cloudy.png" alt="Cloudy">
-                        <div class="temperature">20°C</div>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <p style="font-size: 15px;margin-bottom: 1px;margin-top:1px">Precipitation</p>
-                <div class="hanoi-map"> <img style="width: 100%;"src="hanoi-map.png" alt="bieu do luong mua"></div>
-            </div>
-        </div>
-        <div class="flex">
+        <div class="flex" style="margin-top: 100px;">
             <div class="day">
-                <p style="font-size: 13px;">5 days forecast</p>
-                <div class="day-item" style="display:flex">
-                    <p style="font-size: 13px; margin-left: 10px;">Today</p>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
+                <p style="font-size: 13px;">6 days forecast</p>
+                <div id="forecast">
+
                 </div>
-                <div class="day-item" style="display:flex">
-                    <div style="width:45px"><p style="font-size: 13px; margin-left: 10px;">Fri</p></div>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
-                </div>
-                <div class="day-item" style="display:flex">
-                    <div style="width:45px"><p style="font-size: 13px; margin-left: 10px;">Sat</p></div>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
-                </div>
-                <div class="day-item" style="display:flex">
-                    <div style="width:45px"><p style="font-size: 13px; margin-left: 10px;">Fri</p></div>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
-                </div>
-                <div class="day-item" style="display:flex">
-                    <div style="width:45px"><p style="font-size: 13px; margin-left: 10px;">Sun</p></div>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
-                </div>
-                <div class="day-item" style="display:flex">
-                    <div style="width:45px"><p style="font-size: 13px; margin-left: 10px;">Tue</p></div>
-                    <img src="cloudy.png" style="width: 20%; height: auto; margin-left: 15px;">
-                    <p style="font-size: 13px; margin-left: 10px;">9</p>
-                    <div class="day-progress" style="text-align: center;">
-                        <progress value="9" max="36"></progress>
-                    </div>
-                </div>
+
             </div>
             <div class="air">
                 <div class="quality">
                     <div>
-                        <p style="font-size: 13px; margin-block-start:0">AIR QUALITY</p>
+                        <p style="font-size: 13px; margin-block-start:0; padding-top: 10px;">AIR QUALITY</p>
                     </div>
                     <p style="font-size: 15px;">28 - Good</p>
                     <div class="progress-container" style="text-align: center;">
                         <progress value="28" max="200"></progress>
                     </div>
-                <div class="top">
-                    <div class="flex">
-                        <div class="uv">
-                            <p style="font-size: 13px;    margin-block-end: 1px;">UV INDEX</p>
-                            <p style ="margin-block-end: 1px"><span id="currentUv" class="currentUv">--</span></p>
-                            <div id="uv-progress" style="text-align: center;">
-                                <progress value="5" max="11"></progress>
+                    <div class="top">
+                        <div class="flex">
+                            <div class="uv">
+                                <p style="font-size: 13px;    margin-block-end: 1px;">UV INDEX</p>
+                                <p style="margin-block-end: 1px"><span id="currentUv" class="currentUv">--</span></p>
+                                <div id="uv-progress" style="text-align: center;">
+                                    <progress value="5" max="11"></progress>
+                                </div>
+                            </div>
+                            <div class="cloud">
+                                <p style="font-size: 13px;">CLOUD</p>
+                                <p><span id="currentCloud" class="currentCloud">--</span>%</p>
+                            </div>
+                            <div class="wind">
+                                <p style="font-size: 13px;">WIND</p>
+                                <p><span id="currentWind" class="currentWind">--</span>°C</p>
+                            </div>
+                            <div class="precipitation">
+                                <p style="font-size: 13px;">PRECIPITATION</p>
+                                <p><span id="currentPrecipitation" class="currentPrecipitation">--</span>mm</p>
+
                             </div>
                         </div>
-                        <div class="sunrise">
-                            <p style="font-size: 13px;">SUNRISE</p>
-                            <p><span id="currentSunrise" class="currentSunrise">--</span>°C</p>
-                        </div>
-                        <div class="wind">
-                            <p style="font-size: 13px;">WIND</p>
-                            <p><span id="currentWind" class="currentWind">--</span>°C</p>
-                        </div>
-                        <div class="precipitation">
-                            <p style="font-size: 13px;">PRECIPITATION</p>
-                            <p><span id="currentPrecipitation" class="currentPrecipitation">--</span>mm</p>
-
-                        </div>
                     </div>
-                </div>
-                <div class="bottom">
-                    <div class="flex">
-                        <div class="feel">
-                            <p style="font-size: 13px;">FEELS LIKE</p>
-                            <p><span id="currentFeel" class="currentFeel">--</span>°C</p>
-                         
-                        </div>
-                        <div class="humidity">
-                            <p style="font-size: 13px;">HUMIDITY</p>
-                            <p><span id="currentHumidity" class="currentHumidity">--</span>%</p>
-                        </div>
-                        <div class="visibility">
-                            <p style="font-size: 13px;">VISIBILITY</p>
-                            <p><span id="currentVisibility" class="currentVisibility">--</span>km</p>
-                        </div>
-                        <div class="pressure">
-                            <p style="font-size: 13px;">PRESSURE</p>
-                            <p><span id="currentPressure" class="currentPressure">--</span>hPa</p>
+                    <div class="bottom">
+                        <div class="flex">
+                            <div class="feel">
+                                <p style="font-size: 13px;">FEELS LIKE</p>
+                                <p><span id="currentFeel" class="currentFeel">--</span>°C</p>
+
+                            </div>
+                            <div class="humidity">
+                                <p style="font-size: 13px;">HUMIDITY</p>
+                                <p><span id="currentHumidity" class="currentHumidity">--</span>%</p>
+                            </div>
+                            <div class="visibility">
+                                <p style="font-size: 13px;">VISIBILITY</p>
+                                <p><span id="currentVisibility" class="currentVisibility">--</span>km</p>
+                            </div>
+                            <div class="pressure">
+                                <p style="font-size: 13px;">PRESSURE</p>
+                                <p><span id="currentPressure" class="currentPressure">--</span>hPa</p>
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-    
-
-    <script>
-        function getCurrentWeather () {
-            console.log("Dang lay thoi tiet hien tai");
-            const requestOptions = {
-                method: "GET",
-                redirect: "follow"
-            };
-
-            fetch("/current.php", requestOptions)
-                .then((response) => response.json())
-                .then(function (result) {
-                    console.log(result);
-                    currentWeatherCondition = (result.current.condition.text);
-                    currentTemp = result.current.temp_c;
-                    currentUv = result.current.uv;
-                    currentWindDir = result.current.wind_dir;
-                    currentPrecipitation = result.current.precip_mm;
-                    currentFeel = result.current.feelslike_c;
-                    currentHumidity = result.current.humidity;
-                    currentVisibility = result.current.vis_km;
-                    currentPressure = result.current.pressure_in;
 
 
 
-                    document.getElementById('currentWeatherCondition').innerHTML  = (currentWeatherCondition);
-                    document.getElementById('currentTemp').innerHTML  = (currentTemp);
-                    document.getElementById('currentUv').innerHTML  = (currentUv);
-                    document.getElementById('currentWind').innerHTML  = (currentWindDir);
-                    document.getElementById('currentPrecipitation').innerHTML  = (currentPrecipitation);
-                    document.getElementById('currentFeel').innerHTML  = (currentFeel);
-                    document.getElementById('currentHumidity').innerHTML  = (currentHumidity);
-                    document.getElementById('currentVisibility').innerHTML  = (currentVisibility);
-                    document.getElementById('currentPressure').innerHTML  = (currentPressure);
+
+        <script>
+            function getCurrentWeather() {
+                console.log("Dang lay thoi tiet hien tai");
+                const requestOptions = {
+                    method: "GET",
+                    redirect: "follow"
+                };
+
+                fetch("/forecast.php", requestOptions)
+                    .then((response) => response.json())
+                    .then(function (result) {
+                        console.log(result);
+                        currentWeatherCondition = (result.current.condition.text);
+                        currentTemp = result.current.temp_c;
+                        currentUv = result.current.uv;
+                        currentWindDir = result.current.wind_dir;
+                        currentPrecipitation = result.current.precip_mm;
+                        currentFeel = result.current.feelslike_c;
+                        currentHumidity = result.current.humidity;
+                        currentVisibility = result.current.vis_km;
+                        currentPressure = result.current.pressure_in;
+                        currentCloud = result.current.cloud;
 
 
-                })
-                .catch((error) => console.error(error));    
+
+                        document.getElementById('currentWeatherCondition').innerHTML = (currentWeatherCondition);
+                        document.getElementById('currentTemp').innerHTML = (currentTemp);
+                        document.getElementById('currentUv').innerHTML = (currentUv);
+                        document.getElementById('currentWind').innerHTML = (currentWindDir);
+                        document.getElementById('currentPrecipitation').innerHTML = (currentPrecipitation);
+                        document.getElementById('currentFeel').innerHTML = (currentFeel);
+                        document.getElementById('currentHumidity').innerHTML = (currentHumidity);
+                        document.getElementById('currentVisibility').innerHTML = (currentVisibility);
+                        document.getElementById('currentPressure').innerHTML = (currentPressure);
+                        document.getElementById('currentCloud').innerHTML = (currentCloud);
+
+
+                        let html = '';
+
+                        array = result.forecast.forecastday;
+                        for (let index = 0; index < array.length; index++) {
+                            const element = array[index];
+
+                            console.log(element);
+                            let icon = element.day.condition.icon;
+                            let day = element.date;
+                            let temp = element.day.avgtemp_c;
+                            html += `<div class="day-item" style="display:flex">
+                            <div style="width:90px"><p style="font-size: 13px; margin-left: 10px;">${day}</p></div>
+                            <img src="${icon}" style="width: 20%; height: auto; margin-left: 15px;">
+                            <p style="font-size: 13px; margin-left: 10px;">${temp}°C</p>
+                            
+                        </div>
+                        `
+                        }
+                        var forecastDiv = document.getElementById("forecast");
+                        forecastDiv.innerHTML = html;
+
+
+                    })
+                    .catch((error) => console.error(error));
             }
 
-        getCurrentWeather();
-
-    </script>
-
-    
+            getCurrentWeather();
+        </script>
 </body>
+
 </html>
