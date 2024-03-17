@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Du Bao Thoi Tiet</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-image: url("wallpaper.jpg");
 
@@ -50,7 +49,6 @@
             padding: 10px;
             background-color: rgba(63, 69, 79, 0.548);
             width: calc(20% - 10px);
-            /* Set width of each item */
             color: white;
             display: flex;
             flex-direction: column;
@@ -143,6 +141,8 @@
             margin-right: 5px;
 
         }
+      
+        
 
         .cloud {
             width: 175px;
@@ -214,7 +214,9 @@
 
 
         }
-
+        .head {
+            font-size:13px;
+        }
         p {
             color: white;
             text-align: center;
@@ -242,7 +244,9 @@
         .progress-container {
             width: 660px;
             margin: 20px;
+            margin-bottom: 5px;
             text-align: center;
+            margin-top:0px;
         }
 
         progress {
@@ -254,17 +258,23 @@
         }
 
         progress::-webkit-progress-bar {
-            background-color: rgb(29, 45, 80);
+            background-color: rgb(29, 48, 91);
         }
 
         progress::-webkit-progress-value {
-            background-color: rgb(143, 153, 173);
+            background-color: rgb(171, 179, 195);
+        }
+        progress {
+            border: 0;
+            height: 10px;
+            border-radius: 20px;
         }
 
         .uv-progress {
             width: 100px;
             margin-top: 1px;
             text-align: center;
+            
         }
 
         .hanoi-map {
@@ -282,27 +292,21 @@
             margin-left: 0px;
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
+        .uv-head {
+            font-size:13px;
+            margin-block-end: 1px;
         }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: gray;
-            border-radius: 10px;
+        .uv-current{
+            margin-block-end: 1px;
 
         }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: black;
-            border-radius: 10px;
-
+        .air-quality{
+            font-size: 18px;
         }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+        .tieude {
+            font-size: 13px; 
+            margin-block-start:0;
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -320,40 +324,37 @@
         </div>
         <div class="flex" style="margin-top: 100px;">
             <div class="day">
-                <p style="font-size: 13px;">6 days forecast</p>
-                <div id="forecast">
-
-                </div>
-
+                <p class ="head">6 days forecast</p>
+                <div id="forecast"></div>
             </div>
             <div class="air">
                 <div class="quality">
                     <div>
-                        <p style="font-size: 13px; margin-block-start:0; padding-top: 10px;">AIR QUALITY</p>
+                        <p class="tieude">AIR QUALITY</p>
                     </div>
-                    <p style="font-size: 15px;">28 - Good</p>
-                    <div class="progress-container" style="text-align: center;">
+                    <p class="air-quality">28 - Good</p>
+                    <div class="progress-container">
                         <progress value="28" max="200"></progress>
                     </div>
                     <div class="top">
                         <div class="flex">
                             <div class="uv">
-                                <p style="font-size: 13px;    margin-block-end: 1px;">UV INDEX</p>
-                                <p style="margin-block-end: 1px"><span id="currentUv" class="currentUv">--</span></p>
+                                <p class="uv-head">UV INDEX</p>
+                                <p class="uv-current"><span id="currentUv" class="currentUv">--</span></p>
                                 <div id="uv-progress" style="text-align: center;">
                                     <progress value="5" max="11"></progress>
                                 </div>
                             </div>
                             <div class="cloud">
-                                <p style="font-size: 13px;">CLOUD</p>
+                                <p class="head">CLOUD</p>
                                 <p><span id="currentCloud" class="currentCloud">--</span>%</p>
                             </div>
                             <div class="wind">
-                                <p style="font-size: 13px;">WIND</p>
+                                <p class="head">WIND</p>
                                 <p><span id="currentWind" class="currentWind">--</span>°C</p>
                             </div>
                             <div class="precipitation">
-                                <p style="font-size: 13px;">PRECIPITATION</p>
+                                <p class="head">PRECIPITATION</p>
                                 <p><span id="currentPrecipitation" class="currentPrecipitation">--</span>mm</p>
 
                             </div>
@@ -362,20 +363,20 @@
                     <div class="bottom">
                         <div class="flex">
                             <div class="feel">
-                                <p style="font-size: 13px;">FEELS LIKE</p>
+                                <p class="head">FEELS LIKE</p>
                                 <p><span id="currentFeel" class="currentFeel">--</span>°C</p>
 
                             </div>
                             <div class="humidity">
-                                <p style="font-size: 13px;">HUMIDITY</p>
+                                <p class="head">HUMIDITY</p>
                                 <p><span id="currentHumidity" class="currentHumidity">--</span>%</p>
                             </div>
                             <div class="visibility">
-                                <p style="font-size: 13px;">VISIBILITY</p>
+                                <p class="head">VISIBILITY</p>
                                 <p><span id="currentVisibility" class="currentVisibility">--</span>km</p>
                             </div>
                             <div class="pressure">
-                                <p style="font-size: 13px;">PRESSURE</p>
+                                <p class="head">PRESSURE</p>
                                 <p><span id="currentPressure" class="currentPressure">--</span>hPa</p>
 
 
