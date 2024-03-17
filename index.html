@@ -5,315 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Du Bao Thoi Tiet</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-image: url("wallpaper.jpg");
-
-        }
-
-        .container {
-            width: 1000px;
-            /* height: 1800px; */
-            margin: auto;
-        }
-
-        .currentWeather {
-            width: 100%;
-            height: 200px;
-        }
-
-        .hourly {
-            flex: 2;
-            height: 150px;
-            background-color: rgba(63, 69, 79, 0.548);
-            border-radius: 20px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            border: 1px solid #2b2d31;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            padding: 20px;
-            border-radius: 10px;
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-
-        .hourly-forecast-item {
-            flex: 1;
-            /* flex: 0 0 auto; Prevent items from shrinking */
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: rgba(63, 69, 79, 0.548);
-            width: calc(20% - 10px);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hourly-forecast-item img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 5px;
-        }
-
-        .hourly time {
-            font-size: small;
-        }
-
-        .map {
-            flex: 1;
-            height: 192px;
-            border-radius: 20px;
-            margin-bottom: 0px;
-            background-color: rgba(63, 69, 79, 0.548);
-            overflow-x: hidden;
-
-
-
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .day {
-            flex: 1;
-            height: 360px;
-            background-color: rgba(63, 69, 79, 0.548);
-            border-radius: 20px;
-            margin-right: 5px;
-        }
-
-
-
-        .day-item {
-            width: 100%;
-            height: 50px;
-            margin-top: 1px;
-            padding: 0px;
-        }
-
-        .air {
-            flex: 2;
-            height: 380px;
-            border-radius: 20px;
-            margin-bottom: 5px;
-            margin-top: 0px;
-
-
-        }
-
-        .quality {
-            width: 100%;
-            height: 110px;
-            background-color: rgba(63, 69, 79, 0.548);
-            border-radius: 10px;
-            margin-bottom: 5px;
-
-
-        }
-
-        .top {
-            width: 100%;
-            height: 120px;
-            margin-bottom: 5px;
-
-
-        }
-
-        .bottom {
-            width: 100%;
-            height: 120px;
-
-        }
-
-        .uv {
-            width: 175px;
-            height: 120px;
-            background-color: rgba(63, 69, 79, 0.548);
-            border-radius: 20px;
-            margin-right: 5px;
-
-        }
-      
-        
-
-        .cloud {
-            width: 175px;
-            height: 120px;
-            background-color: rgba(63, 69, 79, 0.548);
-            border-radius: 20px;
-            margin-right: 5px;
-
-
-        }
-
-        .wind {
-            width: 175px;
-            height: 120px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-            border-radius: 20px;
-            margin-right: 5px;
-
-
-        }
-
-        .precipitation {
-            width: 175px;
-            height: 120px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-            border-radius: 20px;
-
-        }
-
-        .feel {
-            width: 175px;
-            height: 120px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-            border-radius: 20px;
-            margin-right: 5px;
-
-
-        }
-
-        .humidity {
-            width: 175px;
-            height: 120px;
-            border-radius: 20px;
-            margin-right: 5px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-
-        }
-
-        .visibility {
-            width: 175px;
-            height: 120px;
-            border-radius: 20px;
-            margin-right: 5px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-
-
-        }
-
-        .pressure {
-            width: 175px;
-            height: 120px;
-            border-radius: 20px;
-            background-color: rgba(63, 69, 79, 0.548);
-
-
-        }
-        .head {
-            font-size:13px;
-        }
-        p {
-            color: white;
-            text-align: center;
-        }
-
-        .clouds-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        body.cloudy {
-            background-color: #2c2f32;
-        }
-
-        .temp {
-            margin: 0;
-            padding: 0;
-            font-size: 50px;
-        }
-
-        .progress-container {
-            width: 660px;
-            margin: 20px;
-            margin-bottom: 5px;
-            text-align: center;
-            margin-top:0px;
-        }
-
-        progress {
-            width: 50%;
-            height: 10px;
-            border: 1px solid #373232;
-            border-radius: 20px;
-            background: linear-gradient(to right, #1db136, #f02913);
-        }
-
-        progress::-webkit-progress-bar {
-            background-color: rgb(29, 48, 91);
-        }
-
-        progress::-webkit-progress-value {
-            background-color: rgb(171, 179, 195);
-        }
-        progress {
-            border: 0;
-            height: 10px;
-            border-radius: 20px;
-        }
-
-        .uv-progress {
-            width: 100px;
-            margin-top: 1px;
-            text-align: center;
-            
-        }
-
-        .hanoi-map {
-            max-height: 80%;
-            overflow: auto;
-
-        }
-
-        .day-progress {
-            width: 50%;
-            margin-left: 0px;
-        }
-
-        .day-progress progress {
-            margin-left: 0px;
-        }
-
-        .uv-head {
-            font-size:13px;
-            margin-block-end: 1px;
-        }
-        .uv-current{
-            margin-block-end: 1px;
-
-        }
-        .air-quality{
-            font-size: 18px;
-        }
-        .tieude {
-            font-size: 13px; 
-            margin-block-start:0;
-            padding-top: 10px;
+        @media only screen and (max-width: 1000px) {
+            .container {
+                width: 100%;
+            }
+            .column {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body class="cloudy">
 
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" >
         <div class="currentWeather">
             <p class="city">Ha Noi</p>
             <p class="temp">
@@ -322,7 +29,7 @@
             </p>
             <p id="currentWeatherCondition" class="currentWeatherCondition">--</p>
         </div>
-        <div class="flex" style="margin-top: 100px;">
+        <div class="column flex" style="margin-top: 100px;">
             <div class="day">
                 <p class ="head">6 days forecast</p>
                 <div id="forecast"></div>
@@ -351,7 +58,7 @@
                             </div>
                             <div class="wind">
                                 <p class="head">WIND</p>
-                                <p><span id="currentWind" class="currentWind">--</span>°C</p>
+                                <p><span id="currentWind" class="currentWind">--</span></p>
                             </div>
                             <div class="precipitation">
                                 <p class="head">PRECIPITATION</p>
@@ -439,7 +146,7 @@
                             let temp = element.day.avgtemp_c;
                             html += `<div class="day-item" style="display:flex">
                             <div style="width:90px"><p style="font-size: 13px; margin-left: 10px;">${day}</p></div>
-                            <img src="${icon}" style="width: 20%; height: auto; margin-left: 15px;">
+                            <img src="${icon}" style="height: auto; margin-left: 15px;">
                             <p style="font-size: 13px; margin-left: 10px;">${temp}°C</p>
                             
                         </div>
