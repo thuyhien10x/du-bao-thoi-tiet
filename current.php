@@ -4,7 +4,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.weatherapi.com/v1/current.json?key=a95639a088604a2589c111655241003&q=Ha%20Noi&aqi=no',
+  CURLOPT_URL => 'https://api.weatherapi.com/v1/current.json?key=a95639a088604a2589c111655241003&q=HaYYYYYYYYY%20Noi&aqi=no',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
